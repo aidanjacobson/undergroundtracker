@@ -2,7 +2,7 @@ var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext("2d");
 
 function drawImage(evt) {
-    s.innerText = evt.alpha;
+    s.innerText = evt.absolute;
     var angle = deg2rad(evt.alpha+180);
     canvas.width = canvas.width; // clear canvas
     ctx.beginPath();
