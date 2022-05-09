@@ -2,7 +2,6 @@ var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext("2d");
 
 function drawImage(evt) {
-    s.innerText = evt.absolute;
     var angle = deg2rad(evt.alpha+180);
     canvas.width = canvas.width; // clear canvas
     ctx.beginPath();
@@ -14,8 +13,10 @@ function drawImage(evt) {
     ctx.lineTo(50+x, 50+y);
     ctx.stroke();
 }
-
-window.ondeviceorientationabsolute = drawImage;
+window.onload = function() {
+    s.innerText = "ondeviceorientationabsolute" in window;
+    window.ondeviceorientationabsolute = drawImage;
+}
 
 function deg2rad(deg) {
     return deg/180*Math.PI;
